@@ -1,17 +1,19 @@
 const jokeEl = document.getElementById("joke");
 const jokeBtn = document.getElementById("jokeBtn");
 
+
 generateJoke();
 
 function generateJoke() {
-  fetch("https://icanhazdadjoke.com/", {
+  fetch("https://api.chucknorris.io/jokes/random", {
     headers: {
       Accept: "application/json",
     },
   })
     .then((res) => res.json())
     .then((data) => {
-      jokeEl.innerHTML = data.joke;
+      console.log(data);
+      jokeEl.innerHTML = data.value;
     });
 }
 
